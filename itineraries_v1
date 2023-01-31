@@ -1,11 +1,3 @@
-import queue
-import zipfile
-import time
-import signal
-from timeit import default_timer as timer
-
-time_limit = 30
-
 # TASK 2
 " We start by implementing an algorithm that computes the MST"
 "based on Kruskal Method and optimized with the Union-Find by rank"
@@ -36,7 +28,10 @@ def find(parent,v):
     if parent[v][0] == v:
         return v
     else :
+        r = find(parent , parent[v][0])
+        parent[v][0]=r
         return find(parent , parent[v][0])
+
 
 def union(parent,x,y):
     r1 = find(parent, x)
