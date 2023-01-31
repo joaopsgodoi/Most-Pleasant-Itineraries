@@ -1,6 +1,6 @@
 # Most-Pleasant-Itineraries
 
-To run the codes itineraries_v1, itineraries_v2 and itineraries_v3, you need to put them in one document.
+To run and test the codes itineraries_v1, itineraries_v2 and itineraries_v3, you need to put them in one document.
 
 itineraries_v3, for example, needs some functions that have been defined in itineraries_v1. 
 
