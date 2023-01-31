@@ -1,3 +1,16 @@
+import queue
+import zipfile
+import time
+import signal
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from timeit import default_timer as timer
+
+
+time_limit = 30
+
+
 # TASK 2
 " We start by implementing an algorithm that computes the MST"
 "based on Kruskal Method and optimized with the Union-Find by rank"
