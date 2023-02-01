@@ -255,11 +255,10 @@ def test_v3 (V, AdjList, P, l,k):
     signal.alarm(0)
     
     
-    
-#Test de joao
+
 
 for k in range(10):
-    name_test = "C:\\Users\\jpsed\\Desktop\\tests\\tests\\itineraries." + str(k) + ".in"
+    name_test = "Input/itineraries." + str(k) + ".in"
     with open(name_test, "r") as test:
         n, m = map(int, test.readline().strip().split())
         V = [i for i in range(1,n+1)]
@@ -273,19 +272,13 @@ for k in range(10):
         for i in range(l):
             u, v = map(int,  test.readline().strip().split())
             P.append((u, v, i))
-        mst = MST(V,E)
-        AdjList = AdjacencyList(V,mst)
-        Tree = Task3(AdjList)
-        
-        p=0
-        print("test"+str(k))
-        print(l)
-        
-        arquivo = open("C:\\Users\\jpsed\\Desktop\\Documentos\\" +"output"+str(k)+".txt", "a")
-        for x in P:
-            a = Tree.itineraries_v2(x[0],x[1])
-            arquivo.write(str(a)+"\n")
-    
+        AdjList = AdjacencyList(V,MST(V,E))
+        dict["itineraries_v1"].append(time_v1(V,AdjList,P))
+        dict["itineraries_v2"].append(time_v2(AdjList,P))
+        dict["itineraries_v3"].append(time_v3(V,AdjList,queries,l))
+        #The running time will exceed 20 minutes, because of itineraries_v1. Note that we stop the execution of itineraries_v1 if it exceeds 2 min in each test.
+for u in keys:
+  dict[u]=np.array(dict[u])
 
-
-
+df = pd.DataFrame(dict, tests_names)
+df.head(10)
